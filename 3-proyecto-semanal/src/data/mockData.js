@@ -205,3 +205,30 @@ export const mockComments = [
     user: { username: "css_ninja", img: "https://i.pravatar.cc/40?img=15" },
   },
 ];
+
+export const mockArticles = [
+    {
+      "id": 1,
+      "titulo": "Construyendo búsquedas con Elasticsearch",
+      "autor": "juanperez",
+      "categoria": "Motores de Búsqueda",
+      "descripcion": "Añade búsqueda de texto completo a tu aplicación usando Elasticsearch y aprende sobre los índices invertidos.",
+      "imagen": "https://picsum.photos/id/1015/800/400"
+    },
+    {
+      "id": 2,
+      "titulo": "Desplegando aplicaciones con Docker",
+      "autor": "dev_miguel",
+      "categoria": "Desarrollo",
+      "descripcion": "Conteneriza tus aplicaciones y desplíegalas de forma consistente en cualquier entorno usando Docker.",
+      "imagen": "https://picsum.photos/id/1016/800/400"
+    },
+    {
+      "id": 3,
+      "titulo": "PostgreSQL vs MySQL: ¿cuál elegir?",
+      "autor": "anagarcia",
+      "categoria": "Bases de Datos",
+      "descripcion": "Una comparación detallada de las dos bases de datos relacionales de código abierto más populares para ayudarte a tomar la decisión correcta.",
+      "imagen": "https://picsum.photos/id/1018/800/400",
+    }
+  ]
