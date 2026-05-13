@@ -1,0 +1,10 @@
+Herramientas de React Router DOM:
+
+Outlet: Sirve para dejar el hueco que va a tomar automaticamente con el componente qque se especifique en la ruta en el brwoserrouter
+
+CreateBrowserRouter: Sirve para crear el arbol de rutas de el sitio web.
+
+RouterProvider: Especificamos el router que vamos a usar (creado con el CreateBrowserRouter)
+
+useParams(): Se usa en los componentes. Sirve para acceder a un id o "slug" (ej: /posts/1)
+

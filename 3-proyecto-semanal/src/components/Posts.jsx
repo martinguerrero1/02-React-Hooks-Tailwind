@@ -21,7 +21,7 @@ function Posts(){
 
             <div className="flex-5 flex flex-col gap-4">
                 {postsChicos.map((post) => ( //el return esta implicito
-                    <article className="flex-1 flex gap-3">
+                    <article key={post._id} className="flex-1 flex gap-3">
                         <img src={post.img} alt="" className="w-1/3 object-cover rounded-2xl"/>
                         <div className="flex flex-col justify-around">
                             <p className="flex gap-3"><span className="font-bold">{post._id.toString().padStart(2,"0")}.</span> <span className="text-blue-800">{post.category}</span> <span className="text-gray-500">1 year ago</span></p>
