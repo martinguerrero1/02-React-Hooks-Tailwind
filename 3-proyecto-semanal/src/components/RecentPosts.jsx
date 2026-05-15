@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 function Articles({ posts }){
     const postRecientes = posts.reverse()
 
@@ -12,7 +14,7 @@ function Articles({ posts }){
                             <h3 className="text-[2.5vw] font-bold" >{post.title}</h3>
                             <p className="text-gray-500 text-[1vw]">Escrito por <span className="text-blue-800">{post.user.username}</span> en <span className="text-blue-800">{post.category}</span> <span>1 year ago</span></p>
                             <p className="text-[1.2vw]">{post.desc}</p>
-                            <a href="#" className="text-blue-800 underline text-[1.2vw]">Leer más...</a>
+                            <Link to={`/post/${post.slug}`} className="text-blue-800 underline text-[1.2vw] hover:text-blue-950 w-fit">Leer más...</Link>
                         </div>
                     </article>
                 ))}
