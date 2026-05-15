@@ -9,6 +9,8 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
+import Write from './pages/Write';
+import DetailPost from './components/DetailPost';
 
 //RUTEO DE LA APP
 
@@ -19,6 +21,8 @@ const appRouter = createBrowserRouter([
     children: [
       {index: true, element: <Home />},
       {path: '/login', element: <Login />},
+      {path: '/post/:id', element: <DetailPost />},
+      {path: '/write', element: <Write />},
     ]
   },
   {

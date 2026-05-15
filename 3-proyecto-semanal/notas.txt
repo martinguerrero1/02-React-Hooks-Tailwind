@@ -1,10 +1,15 @@
-Herramientas de React Router DOM:
+Funciones de React Router DOM:
 
-Outlet: Sirve para dejar el hueco que va a tomar automaticamente con el componente qque se especifique en la ruta en el brwoserrouter
+    Outlet: Sirve para dejar el hueco que va a tomar automaticamente con el componente qque se especifique en la ruta en el brwoserrouter
 
-CreateBrowserRouter: Sirve para crear el arbol de rutas de el sitio web.
+    CreateBrowserRouter: Sirve para crear el arbol de rutas de el sitio web.
 
-RouterProvider: Especificamos el router que vamos a usar (creado con el CreateBrowserRouter)
+    RouterProvider: Especificamos el router que vamos a usar (creado con el CreateBrowserRouter)
 
-useParams(): Se usa en los componentes. Sirve para acceder a un id o "slug" (ej: /posts/1)
+    useParams(): Se usa en los componentes. Sirve para acceder a un id o "slug" (ej: /posts/1)
 
+Libreria de fake data base "server-json". Me permite tener una api rest para simular un backend.
+
+    corre el servidor para la api rest con "npm run server"
+
+    db.json <- "base de datos"

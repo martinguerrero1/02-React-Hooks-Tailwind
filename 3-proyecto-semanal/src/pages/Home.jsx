@@ -1,8 +1,25 @@
+// DEPENDENCIAS
+import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom'
+import axios from 'axios'
+// COMPONENTES
 import Searchbar from "../components/Searchbar";
 import Posts from "../components/Posts";
-import Articles from "../components/Articles";
+import RecentPosts from "../components/RecentPosts";
+import Loading from '../components/Loading';
 
 function Home(){
+    const [posts, setPosts] = useState();
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await axios.get("http://localhost:3000/posts");
+            setPosts(response.data);
+        }
+        
+        fetchData();
+    }, []);
+
     return(
         <div className="flex flex-col gap-10">
             {/* Parte del hero */}
@@ -44,16 +61,16 @@ function Home(){
                         </svg>
 
                         {/* Botón */}
-                        <button className="w-32 h-32 rounded-full bg-blue-600 text-white text-5xl flex items-center justify-center hover:scale-105 transition rotate-45"> ↑ </button>
+                        <Link to="/write" className="w-32 h-32 rounded-full bg-blue-600 text-white text-5xl flex items-center justify-center hover:scale-105 transition rotate-45"> ↑ </Link>
                     </div>
                 </div>
             </section>
 
             <Searchbar></Searchbar>
 
-            <Posts></Posts>
+            {posts ? <Posts posts= {posts}/> : <Loading/>}
 
-            <Articles></Articles>
+            {posts ? <RecentPosts posts= {posts}/> : <Loading/>}
         </div>
     )
 }
