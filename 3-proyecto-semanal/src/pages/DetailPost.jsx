@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loading from "../components/Loading";
+import NotFound from "./NotFound";
 
 export default function DetailPost() {
     const {slug} = useParams();
@@ -20,7 +20,7 @@ export default function DetailPost() {
     }, [])
 
     if (!post){
-        return (<Loading/>)
+        return (<NotFound/>)
     }
 
   return (
@@ -49,8 +49,8 @@ export default function DetailPost() {
                     </div>
                     <p className="text-gray-500">Apasionado por la tecnología y el desarrollo web.</p>
                     <div className="flex gap-2">
-                        <img src={`https://picsum.photos/seed/${post._id}-1/800/400`} alt="" className="flex-1 min-w-0"/>
-                        <img src={`https://picsum.photos/seed/${post._id}-2/800/400`} alt="" className="flex-1 min-w-0"/>
+                        <img src={`https://picsum.photos/seed/${post.id}-1/800/400`} alt="" className="flex-1 min-w-0"/>
+                        <img src={`https://picsum.photos/seed/${post.id}-2/800/400`} alt="" className="flex-1 min-w-0"/>
                     </div>
                 </div>
 
