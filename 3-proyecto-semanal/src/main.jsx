@@ -9,7 +9,7 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
-import Write from './pages/Write';
+import Write from './pages/CreatePost';
 import DetailPost from './pages/DetailPost';
 
 //RUTEO DE LA APP

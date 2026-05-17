@@ -2,37 +2,43 @@ import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 import {useState} from 'react';
 import axios from "axios";
+import {useNavigate} from 'react-router-dom';
 
 const CreatePost = () => {
+  const navigate = useNavigate();
+
   function handleChange(e){
-    return setFormValues({ ...formValues, [e.taget.name]: e.target.value });
+    return setFormValues({ ...formValues, [e.target.name]: e.target.value });
   }
 
+
+  function htmlToText(html) {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent.replace(/\u00A0/g, " ") // cambia nbsp por espacio normal
+    .trim();
+};
+
+  // PARA EL BOTON PUBLICAR
   async function handleSubmit(e) {
     e.preventDefault();
 
-    setFormValues({
-      ...formValues, slug: formValues.title.toLocaleLowerCase().join("-")
-    })
+    //DEFINICION DEL SLUG
+    const post = {
+      ...formValues,
+      slug: formValues.title.toLowerCase().split(" ").join("-")
+    }
 
-    await axios.post("http://localhost:3000/posts", formValues);
-    setFormValues({
-      title: "",
-      slug: "",
-      desc: "",
-      img: "https://picsum.photos/seed/react/800/400",
-      category: "General",
-      isFeatured: true,
-      user: {
-        _id: "0",
-        username: "Administrador",
-        img: "https://i.pravatar.cc/48"
-      },
-      content: ""
-    });
+    // AÑADO POST A LA DB
+    await axios.post("http://localhost:3000/posts", post);
+
+    navigate('/');
   }
 
+
+
   const [formValues, setFormValues] = useState({
+      id: "",
       title: "",
       slug: "",
       desc: "",
@@ -46,6 +52,7 @@ const CreatePost = () => {
       },
       content: ""
   });
+
 
   return (
   <section className="min-h-screen bg-violet-100 px-6 py-10">
@@ -65,6 +72,7 @@ const CreatePost = () => {
           className="w-full bg-transparent outline-none text-5xl font-bold placeholder:text-gray-400 mb-10"
           name="title"
           onChange={handleChange}
+          required
         />
   
         {/* categoria */}
@@ -76,8 +84,9 @@ const CreatePost = () => {
           <select 
           className="bg-white px-5 py-3 rounded-xl shadow-md outline-none min-w-55"
           name="category"
-          value={formValues.category}
-          onChange={handleChange}>
+          onChange={handleChange}
+          required
+          >
             <option value="General">General</option>
             <option value="Tecnología">Tecnología</option>
             <option value="Diseño">Diseño</option>
@@ -90,8 +99,9 @@ const CreatePost = () => {
           placeholder="Una breve descripción"
           rows="3"
           className="w-full bg-white rounded-2xl shadow-md p-5 resize-none outline-none mb-8"
-          name="description"
+          name="desc"
           onChange={handleChange}
+          required
         />
   
         {/* editor */}
@@ -100,7 +110,9 @@ const CreatePost = () => {
             theme="snow"
             className="h-full"
             name="content"
-            onChange={handleChange}
+            id="content"
+            onChange={(value) => setFormValues({...formValues, content: htmlToText(value)})}
+            required
           />
         </div>
     

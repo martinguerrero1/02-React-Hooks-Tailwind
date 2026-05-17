@@ -8,7 +8,7 @@ function Articles({ posts }){
             <h2 className="text-gray-600 font-semibold text-2xl">Articulos recientes</h2>
             <div className="flex flex-col gap-15">
                 {postRecientes.map((post) => (
-                    <article key={post._id} className="flex gap-4">
+                    <article key={post.id} className="flex gap-4">
                         <img src={post.img} alt="" className="w-1/3 rounded-xl"/>
                         <div className="flex flex-col gap-2 justify-center">
                             <h3 className="text-[2.5vw] font-bold" >{post.title}</h3>

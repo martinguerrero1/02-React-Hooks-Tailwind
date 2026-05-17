@@ -66,7 +66,7 @@ function Home(){
                 </div>
             </section>
 
-            <Searchbar></Searchbar>
+            <Searchbar />
 
             {posts ? <Posts posts= {posts}/> : <Loading/>}
 
