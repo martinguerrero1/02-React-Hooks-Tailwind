@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Write from './pages/CreatePost';
 import DetailPost from './pages/DetailPost';
+import PostFilter from './pages/PostFilter';
 
 //RUTEO DE LA APP
 
@@ -23,6 +24,7 @@ const appRouter = createBrowserRouter([
       {path: '/login', element: <Login />},
       {path: '/post/:slug', element: <DetailPost />},
       {path: '/write', element: <Write />},
+      {path: '/posts', element: <PostFilter />}
     ]
   },
   {
